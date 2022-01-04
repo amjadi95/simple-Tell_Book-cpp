@@ -11,7 +11,7 @@ private:
 public:
 	List();
 
-	void Insert(Person);
+	bool Insert(Person);
 	virtual void Delete(Person);
 	virtual int Search(Person);
 	virtual void Update(Person);
