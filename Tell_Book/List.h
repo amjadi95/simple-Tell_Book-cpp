@@ -4,7 +4,7 @@
 
 class List
 {
-private:
+protected:
 	Person* list[50];
 	int current;
 
