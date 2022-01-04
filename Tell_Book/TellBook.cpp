@@ -13,13 +13,18 @@ void TellBook::Delete(Person p)
 		list[index] = NULL;
 		for (int i = index;i < 50;i++)
 		{
-			if (list[i + 1] != NULL)
+			if (list[i + 1] != NULL && i+1 < 50)
 			{
 				Person* x = list[i + 1];
 				list[i] = x;
 			}
+			else {
+				list[i] = NULL;
+				break;
+			}
 			
 		}
+		
 		current--;
 	}
 }
