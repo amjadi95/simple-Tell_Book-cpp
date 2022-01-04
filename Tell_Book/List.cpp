@@ -37,3 +37,18 @@ void List::Display(void (*func)(Person* []))
 	func(temp);
 
 }
+
+bool List::Update(Person p)
+{
+	int index = Search(p);
+
+	if (index >= 0)
+	{
+		list[index] = new Person(p);
+		return true;
+	}
+	else {
+		return false;
+	}
+
+}

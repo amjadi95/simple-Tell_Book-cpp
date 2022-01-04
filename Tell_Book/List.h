@@ -14,7 +14,7 @@ public:
 	bool Insert(Person);
 	virtual void Delete(Person);
 	virtual int Search(Person);
-	virtual void Update(Person);
+	bool Update(Person);
 	void Display(void (* )(Person * []));
 	
 
