@@ -13,8 +13,8 @@ public:
 
 	void Insert(Person);
 	virtual void Delete(Person);
-	virtual int Search(string, string);
-	virtual void Update(string, string);
+	virtual int Search(Person);
+	virtual void Update(Person);
 	void Display(void (* )(Person * []));
 	
 
