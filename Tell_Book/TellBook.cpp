@@ -1,5 +1,9 @@
 #include "TellBook.h"
 
+TellBook::TellBook() {
+
+}
+
 void TellBook::Delete(Person p)
 {
 	int index = Search(p);

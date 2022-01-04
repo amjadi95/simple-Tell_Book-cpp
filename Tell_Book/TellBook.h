@@ -7,4 +7,5 @@ class TellBook : public List
 public:
 	void Delete(Person);
 	int Search(Person);
+	TellBook();
 };
