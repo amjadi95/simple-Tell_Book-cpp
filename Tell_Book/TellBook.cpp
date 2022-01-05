@@ -78,13 +78,13 @@ List* TellBook::Search(Person p)
 	return l;
 }
 
-int TellBook::SearchOne(Person p)
+int TellBook::SearchOneByName(Person p)
 {
 	for (int i = 0;i < 50;i++)
 	{
 		if (list[i] != NULL)
 		{
-			if (p.lastName == list[i]->lastName && p.phoneNumber == list[i]->phoneNumber)
+			if (p.lastName == list[i]->lastName && p.firstName == list[i]->firstName)
 			{
 				return i;
 			}
@@ -95,7 +95,7 @@ int TellBook::SearchOne(Person p)
 
 bool TellBook::Update(Person p,string number)
 {
-	int index = SearchOne(p);
+	int index = SearchOneByName(p);
 
 	if (index >= 0)
 	{
