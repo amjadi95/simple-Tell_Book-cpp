@@ -81,8 +81,8 @@ void searchMenu(TellBook* t)
 	Person p;
 	char c;
 	cout << "\n\n 1)BY LAST NAME \n";
-	cout << "\n\n 2)BY PHONE NUMBER \n";
-	cout << "\n\n 2)BACK TO MAIN MENU \n";
+	cout << "\n\n 2)BY FIRST NAME\n";
+	cout << "\n\n 0)BACK TO MAIN MENU \n";
 	cin >> c;
 	while (1)
 	{
@@ -96,8 +96,8 @@ void searchMenu(TellBook* t)
 		}
 		case '2':
 		{
-			cout << "\n Enter PHONE NUMBER :";
-			cin >> p.phoneNumber;
+			cout << "\n Enter FIRST NAME :";
+			cin >> p.firstName;
 			break;
 		}
 		case '0':
@@ -107,17 +107,16 @@ void searchMenu(TellBook* t)
 		default:
 
 		}
-		cout << "\n\n ENTER NEW PHONE NUMBER :";
-		cin >> p.phoneNumber;
 
-		bool b = t->Update(p);
+		List * l = t->Search(p);
 
-		if (b)
+		if (l->Count() != 0)
 		{
-			cout << "\n RECORD HAS BEEN UPDATED!";
+			cout << "\n\n\n";
+			l->Display(display);
 		}
 		else {
-			cout << "\n\n UPDATE FAILED!!!";
+			cout << "\n\n NO RECORD FOUND!!!";
 		}
 
 	}
