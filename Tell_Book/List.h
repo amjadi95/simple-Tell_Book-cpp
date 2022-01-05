@@ -14,7 +14,7 @@ public:
 	bool Insert(Person);
 	virtual Person* Delete(Person) ;
 	virtual List* Search(Person) ;
-	virtual bool Update(Person);
+	virtual bool Update(Person,string);
 	void Display(void (* )(Person * []));
 	int Count();
 	List* getList();
