@@ -44,33 +44,36 @@ Person* TellBook::Delete(Person p)
 		return deleted;
 	}
 }
-int TellBook::Search(Person p)
+List* TellBook::Search(Person p)
 {
+	List* l;
 	if ( p.lastName != "")
 	{
+		
+
 		for (int i = 0;i < 50;i++)
 		{
 			if (list[i] != NULL)
 			{
 				if (p.lastName == list[i]->lastName)
 				{
-					return i;
+					l->Insert(*list[i]);
 				}
 			}
 		}
 	}
-	else if ( p.phoneNumber != "")
+	else if ( p.firstName != "")
 	{
 		for (int i = 0;i < 50;i++)
 		{
 			if (list[i] != NULL)
 			{
-				if (p.phoneNumber == list[i]->phoneNumber)
+				if (p.firstName == list[i]->firstName)
 				{
-					return i;
+					l->Insert(*list[i]);
 				}
 			}
 		}
 	}
-	return -1;
+	return l;
 }

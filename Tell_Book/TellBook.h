@@ -6,6 +6,6 @@ class TellBook : public List
 {
 public:
 	Person* Delete(Person);
-	int Search(Person);
+	List* Search(Person);
 	TellBook();
 };
