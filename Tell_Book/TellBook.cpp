@@ -77,3 +77,17 @@ List* TellBook::Search(Person p)
 	}
 	return l;
 }
+
+int TellBook::SearchOne(Person p)
+{
+	for (int i = 0;i < 50;i++)
+	{
+		if (list[i] != NULL)
+		{
+			if (p.lastName == list[i]->lastName && p.phoneNumber == list[i]->phoneNumber)
+			{
+				return i;
+			}
+		}
+	}
+}
