@@ -94,7 +94,7 @@ int TellBook::SearchOneByName(Person p)
 }
 
 
-bool TellBook::Update(Person p,string number)
+Person* TellBook::Update(Person p,string number)
 {
 	int index = SearchOneByName(p);
 
@@ -102,14 +102,14 @@ bool TellBook::Update(Person p,string number)
 	{
 		try {
 			list[index]->phoneNumber = number;
-			return true;
+			return new Person(*list[index]);
 		}
 		catch (const exception& e)
 		{
-			return false;
+			return NULL;
 		}
 	}
-	return false;
+	return NULL;
 	
 
 }
