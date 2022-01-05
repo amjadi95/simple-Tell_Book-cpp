@@ -142,7 +142,11 @@ void updateMenu(TellBook* t)
 	int i = t->SearchOneByName(p);
 	if (i >= 0)
 	{
-		Person* temp = t->Update(p);
+		cout << "\n ENTER NEW PHONE NUMBER :";
+		string n;
+		cin >> n;
+
+		Person* temp = t->Update(p,n);
 
 		if (temp != NULL)
 		{
