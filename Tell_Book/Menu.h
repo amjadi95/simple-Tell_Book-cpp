@@ -16,7 +16,7 @@ void display(Person* p[])
 		}
 
 	}
-	system("pause");
+	
 }
 void insertMenu(TellBook* t)
 {
@@ -67,7 +67,7 @@ void deleteMenu(TellBook* t)
 		cout << "\n RECORD HAS BEEN DELETED!";
 	}
 	else {
-		cout << "\n\n DELETION FAILED!!!";
+		cout << "\n\n DELETION FAILED!  NO RECORD FOUND!!!";
 	}
 
 	cout << "\n\n";
@@ -77,16 +77,17 @@ void deleteMenu(TellBook* t)
 
 void searchMenu(TellBook* t)
 {
-	system("cls");
-
-	Person p;
-	char c;
-	cout << "\n\n 1)BY LAST NAME \n";
-	cout << "\n\n 2)BY FIRST NAME\n";
-	cout << "\n\n 0)BACK TO MAIN MENU \n";
-	cin >> c;
+	
 	while (1)
 	{
+		system("cls");
+		Person p;
+		char c;
+		cout << "\n\n 1)BY LAST NAME \n";
+		cout << "\n\n 2)BY FIRST NAME\n";
+		cout << "\n\n 0)BACK TO MAIN MENU \n";
+		cin >> c;
+
 		switch (c)
 		{
 		case '1':
@@ -111,7 +112,7 @@ void searchMenu(TellBook* t)
 		}
 		}
 
-		List * l = t->Search(p);
+		List* l = t->Search(p);
 
 		if (l->Count() != 0)
 		{
@@ -121,14 +122,15 @@ void searchMenu(TellBook* t)
 		else {
 			cout << "\n\n NO RECORD FOUND!!!";
 		}
+		cout << "\n\n";
+
+		system("pause");
 
 	}
 
 
 
-	cout << "\n\n";
-
-	system("pause");
+	
 }
 
 void updateMenu(TellBook* t)
@@ -149,7 +151,7 @@ void updateMenu(TellBook* t)
 		string n;
 		cin >> n;
 
-		Person* temp = t->Update(p,n);
+		Person* temp = t->Update(p, n);
 
 		if (temp != NULL)
 		{
@@ -164,11 +166,13 @@ void updateMenu(TellBook* t)
 	{
 		cout << "\n\n NO RECORD FOUND!!!";
 	}
-	
 
 
-	
 
+
+	cout << "\n\n";
+
+	system("pause");
 }
 
 
@@ -213,6 +217,7 @@ void mainMenu(TellBook* t)
 		case '5':
 		{
 			t->Display(display);
+			system("pause");
 			break;
 		}
 		case '0':
