@@ -38,9 +38,9 @@ void List::Display(void (*func)(Person* []))
 
 }
 
-bool List::Update(Person p,string number)
+Person* List::Update(Person p,string number)
 {
-	return false;
+	return NULL;
 
 }
 
