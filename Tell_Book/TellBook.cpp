@@ -91,3 +91,24 @@ int TellBook::SearchOne(Person p)
 		}
 	}
 }
+
+
+bool TellBook::Update(Person p,string number)
+{
+	int index = SearchOne(p);
+
+	if (index >= 0)
+	{
+		try {
+			list[index]->phoneNumber = number;
+			return true;
+		}
+		catch (const exception& e)
+		{
+			return false;
+		}
+	}
+	return false;
+	
+
+}

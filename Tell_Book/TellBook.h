@@ -8,5 +8,6 @@ public:
 	Person* Delete(Person);
 	List* Search(Person);
 	int SearchOne(Person);
+	bool Update(Person, string);
 	TellBook();
 };
