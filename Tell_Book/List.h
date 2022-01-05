@@ -12,10 +12,11 @@ public:
 	List();
 
 	bool Insert(Person);
-	virtual Person* Delete(Person) = 0;
-	virtual int Search(Person) = 0;
+	virtual Person* Delete(Person) ;
+	virtual List* Search(Person) ;
 	bool Update(Person);
 	void Display(void (* )(Person * []));
+	int Count();
 	
 
 };

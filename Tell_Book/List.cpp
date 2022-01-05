@@ -52,3 +52,22 @@ bool List::Update(Person p)
 	}
 
 }
+
+Person*  List::Delete(Person p) {
+
+	return NULL;
+}
+List* List::Search(Person p)
+{
+	return NULL;
+}
+
+int List::Count()
+{
+	if (current == 0)
+		return 0;
+	else
+		return current + 1;
+	
+}
+
