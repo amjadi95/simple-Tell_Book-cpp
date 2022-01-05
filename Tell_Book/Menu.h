@@ -139,8 +139,28 @@ void updateMenu(TellBook* t)
 	cout << "\n ENTER LAST NAME :";
 	cin >> p.lastName;
 
-	int index = t->Search(p);
+	int i = t->SearchOneByName(p);
+	if (i >= 0)
+	{
+		Person* temp = t->Update(p);
 
+		if (temp != NULL)
+		{
+			cout << "\n\n " << temp->firstName << "  " << temp->lastName << "  " << temp->phoneNumber << "\n";
+			cout << "\n RECORD UPDATED!";
+		}
+		else {
+			cout << "\n\n UPDATE FAILED!!!";
+		}
+	}
+	else
+	{
+		cout << "\n\n NO RECORD FOUND!!!";
+	}
+	
+
+
+	
 
 }
 
