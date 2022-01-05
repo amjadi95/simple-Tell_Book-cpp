@@ -90,6 +90,7 @@ int TellBook::SearchOneByName(Person p)
 			}
 		}
 	}
+	return -1;
 }
 
 
