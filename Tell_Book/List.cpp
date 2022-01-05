@@ -26,7 +26,7 @@ bool List::Insert(Person p)
 	
 }
 
-void List::Display(void (*func)(Person* []))
+void List::Display(void (*func)(Person* []) = NULL)
 {
 	Person* temp[50];
 	for (int i = 0; i < 50; i++)
@@ -34,7 +34,8 @@ void List::Display(void (*func)(Person* []))
 		temp[i] = list[i];
 	}
 
-	func(temp);
+	if(func != NULL)
+		func(temp);
 
 }
 
