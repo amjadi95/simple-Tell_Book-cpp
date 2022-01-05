@@ -16,6 +16,7 @@ void display(Person* p[])
 		}
 
 	}
+	system("pause");
 }
 void insertMenu(TellBook* t)
 {
@@ -105,7 +106,9 @@ void searchMenu(TellBook* t)
 			return;
 		}
 		default:
+		{
 
+		}
 		}
 
 		List * l = t->Search(p);
@@ -151,7 +154,7 @@ void updateMenu(TellBook* t)
 		if (temp != NULL)
 		{
 			cout << "\n\n " << temp->firstName << "  " << temp->lastName << "  " << temp->phoneNumber << "\n";
-			cout << "\n RECORD UPDATED!";
+			cout << "\n\n RECORD UPDATED!";
 		}
 		else {
 			cout << "\n\n UPDATE FAILED!!!";
@@ -190,22 +193,27 @@ void mainMenu(TellBook* t)
 		case '1':
 		{
 			insertMenu(t);
+			break;
 		}
 		case '2':
 		{
 			deleteMenu(t);
+			break;
 		}
 		case '3':
 		{
 			updateMenu(t);
+			break;
 		}
 		case '4':
 		{
 			searchMenu(t);
+			break;
 		}
 		case '5':
 		{
 			t->Display(display);
+			break;
 		}
 		case '0':
 		{

@@ -46,7 +46,7 @@ Person* TellBook::Delete(Person p)
 }
 List* TellBook::Search(Person p)
 {
-	List* l;
+	List* l = new List();
 	if ( p.lastName != "")
 	{
 		

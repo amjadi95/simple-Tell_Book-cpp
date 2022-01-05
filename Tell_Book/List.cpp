@@ -65,7 +65,7 @@ int List::Count()
 
 List* List::getList()
 {
-	List* l;
+	List* l = new List();
 	for (int i = 0; i < 50;i++)
 	{
 		if (list[i] != NULL)
