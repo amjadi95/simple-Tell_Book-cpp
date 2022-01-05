@@ -19,6 +19,7 @@ Person* TellBook::Delete(Person p)
 
 				index = i;
 				deleted = list[i];
+				break;
 			}
 		}
 	}
@@ -35,14 +36,13 @@ Person* TellBook::Delete(Person p)
 			}
 			else {
 				list[i] = NULL;
+				current--;
 				break;
 			}
 			
 		}
-		
-		current--;
-		return deleted;
 	}
+	return deleted;
 }
 List* TellBook::Search(Person p)
 {
