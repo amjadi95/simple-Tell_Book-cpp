@@ -12,7 +12,7 @@ public:
 	List();
 
 	bool Insert(Person);
-	virtual void Delete(Person) = 0;
+	virtual Person* Delete(Person) = 0;
 	virtual int Search(Person) = 0;
 	bool Update(Person);
 	void Display(void (* )(Person * []));

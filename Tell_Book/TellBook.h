@@ -5,7 +5,7 @@
 class TellBook : public List
 {
 public:
-	void Delete(Person);
+	Person* Delete(Person);
 	int Search(Person);
 	TellBook();
 };

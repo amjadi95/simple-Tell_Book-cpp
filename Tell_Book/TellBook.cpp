@@ -4,9 +4,24 @@ TellBook::TellBook() {
 
 }
 
-void TellBook::Delete(Person p)
+Person* TellBook::Delete(Person p)
 {
-	int index = Search(p);
+
+	int index = -1;
+	Person * deleted = NULL;
+
+	for (int i = 0; i < 50;i++)
+	{
+		if (list[i] != NULL)
+		{
+			if (list[i]->lastName == p.lastName && list[i]->phoneNumber == p.phoneNumber)
+			{
+
+				index = i;
+				deleted = list[i];
+			}
+		}
+	}
 
 	if (index >= 0)
 	{
@@ -26,6 +41,7 @@ void TellBook::Delete(Person p)
 		}
 		
 		current--;
+		return deleted;
 	}
 }
 int TellBook::Search(Person p)

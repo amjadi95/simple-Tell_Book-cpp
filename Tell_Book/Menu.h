@@ -60,7 +60,7 @@ void deleteMenu(TellBook* t)
 
 	Person* temp = t->Delete(p);
 
-	if (temp = !NULL)
+	if (temp != NULL)
 	{
 		cout << "\n\n " << temp->firstName << "  " << temp->lastName << "  " << temp->phoneNumber << "\n";
 		cout << "\n RECORD HAS BEEN DELETED!";
