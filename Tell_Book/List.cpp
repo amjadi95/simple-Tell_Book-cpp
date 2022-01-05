@@ -71,3 +71,16 @@ int List::Count()
 	
 }
 
+List* List::getList()
+{
+	List* l;
+	for (int i = 0; i < 50;i++)
+	{
+		if (list[i] != NULL)
+		{
+			l->Insert(*list[i]);
+		}
+	}
+	return l;
+}
+

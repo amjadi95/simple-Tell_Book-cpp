@@ -17,6 +17,7 @@ public:
 	bool Update(Person);
 	void Display(void (* )(Person * []));
 	int Count();
+	List* getList();
 	
 
 };
