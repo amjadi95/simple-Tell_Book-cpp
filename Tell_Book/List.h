@@ -18,6 +18,6 @@ public:
 	void Display(void (* )(Person * []));
 	int Count();
 	List* getList();
-	
+	Person* getItem(int);
 
 };

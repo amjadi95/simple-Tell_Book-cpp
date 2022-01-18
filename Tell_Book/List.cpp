@@ -76,3 +76,15 @@ List* List::getList()
 	return l;
 }
 
+Person* List::getItem(int index)
+{
+	if (index < 100)
+	{
+		if (list[index] != NULL)
+		{
+			Person p = *list[index];
+			return &p;
+		}
+	}
+	return NULL;
+}
