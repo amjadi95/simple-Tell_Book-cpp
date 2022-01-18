@@ -84,7 +84,7 @@ Person* List::getItem(int index)
 		if (list[index] != NULL)
 		{
 			Person p = *list[index];
-			return &p;
+			return new Person(p);
 		}
 	}
 	return NULL;
