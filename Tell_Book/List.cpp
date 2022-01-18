@@ -7,6 +7,7 @@ List::List()
 		list[i] = NULL;
 	}
 	current = 0;
+	size = 50;
 }
 
 bool List::Insert(Person p)
@@ -87,4 +88,9 @@ Person* List::getItem(int index)
 		}
 	}
 	return NULL;
+}
+
+int List::Size()
+{
+	return size;
 }

@@ -7,6 +7,7 @@ class List
 protected:
 	Person* list[50];
 	int current;
+	int size;
 	Person* getItem(int);
 
 public:
@@ -19,6 +20,6 @@ public:
 	void Display(void (* )(Person * []));
 	int Count();
 	List* getList();
-	
+	int Size();
 
 };
