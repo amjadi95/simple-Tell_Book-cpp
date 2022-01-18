@@ -32,6 +32,13 @@ void insertMenu(TellBook* t)
 	cout << "\n ENTER PHONE NUMBER :";
 	cin >> p.phoneNumber;
 
+	cout << "\n ENTER GENDER (female=1 , male=0) :";
+	string s;
+	cin >> s;
+
+	bool g = s == "1" ? 1 : 0;
+	p.gender = g ? 'F':'M';
+
 	bool b = t->Insert(p);
 
 	if (b)
