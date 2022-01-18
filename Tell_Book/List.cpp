@@ -78,7 +78,7 @@ List* List::getList()
 
 Person* List::getItem(int index)
 {
-	if (index < 100)
+	if (index < 50)
 	{
 		if (list[index] != NULL)
 		{
