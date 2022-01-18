@@ -8,7 +8,6 @@ protected:
 	Person* list[50];
 	int current;
 	int size;
-	Person* getItem(int);
 
 public:
 	List();
@@ -21,5 +20,6 @@ public:
 	int Count();
 	List* getList();
 	int Size();
+	Person* getItem(int);
 
 };
