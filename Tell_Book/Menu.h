@@ -195,6 +195,7 @@ void mainMenu(TellBook* t)
 		cout << "\n 3)UPDATE \n";
 		cout << "\n 4)SEARCH \n";
 		cout << "\n 5)DISPLAY \n";
+		cout << "\n 6)PRINT \n";
 		cout << "\n 0)Exit \n";
 
 		cin >> c;
@@ -224,6 +225,12 @@ void mainMenu(TellBook* t)
 		case '5':
 		{
 			t->Display(display);
+			system("pause");
+			break;
+		}
+		case '6':
+		{
+			t->saveAllToFile();
 			system("pause");
 			break;
 		}
