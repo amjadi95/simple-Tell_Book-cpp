@@ -36,6 +36,41 @@ void loading() {
 	}
 }
 
+
+bool stringContains(string s1, string s2)
+{
+	int counter = 0;
+	if (s1 != "" && s2 != "" && s2.size() <= s1.size())
+	{
+		for (int i = 0; i < s1.size(); i++)
+		{
+			if (s1[i] == s2[0])
+			{
+				for (int k = 0, j = i; k < s2.size();k++, j++)
+				{
+					if (j >= s1.size())
+					{
+						return false;
+					}
+					if (s2[k] == s1[j])
+					{
+						counter++;
+					}
+					else {
+						counter = 0;
+						break;
+					}
+				}
+				if (counter == s2.size())
+				{
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
+
 TellBook::TellBook() {
 	file = new Tell_Book_File("example");
 	loadFileData();
@@ -139,7 +174,7 @@ List* TellBook::Search(Person p)
 		{
 			if (list[i] != NULL)
 			{
-				if (p.lastName == list[i]->lastName)
+				if (stringContains(list[i]->lastName, p.lastName))
 				{
 					l->Insert(*list[i]);
 				}
@@ -152,7 +187,7 @@ List* TellBook::Search(Person p)
 		{
 			if (list[i] != NULL)
 			{
-				if (p.firstName == list[i]->firstName)
+				if (stringContains(list[i]->firstName, p.firstName))
 				{
 					l->Insert(*list[i]);
 				}
