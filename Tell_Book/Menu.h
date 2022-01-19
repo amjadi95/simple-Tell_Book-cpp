@@ -59,9 +59,9 @@ void insertMenu(TellBook* t)
 		cout << "\n\n INSERTION FAILED!!!";
 	}
 
-	cout << "\n\n";
+	cout << "\n\n\n\n";
 
-	system("pause");
+	
 }
 
 void deleteMenu(TellBook* t)
@@ -69,14 +69,14 @@ void deleteMenu(TellBook* t)
 	system("cls");
 
 	
-	string fname="", number="";
+	string lname="", number="";
 	cout << "\n ENTER LAST NAME :";
-	cin >> fname;
+	cin >> lname;
 
 	cout << "\n ENTER PHONE NUMBER :";
 	cin >> number;
 
-	Person p(fname,"",number,1);
+	Person p("", lname, number, 1);
 
 	Person* temp = t->Delete(p);
 
@@ -89,9 +89,9 @@ void deleteMenu(TellBook* t)
 		cout << "\n\n DELETION FAILED!  NO RECORD FOUND!!!";
 	}
 
-	cout << "\n\n";
+	cout << "\n\n\n\n";
 
-	system("pause");
+	
 }
 
 void searchMenu(TellBook* t)
@@ -142,9 +142,9 @@ void searchMenu(TellBook* t)
 		else {
 			cout << "\n\n NO RECORD FOUND!!!";
 		}
-		cout << "\n\n";
+		cout << "\n\n\n\n";
 
-		system("pause");
+		
 
 	}
 
@@ -197,9 +197,9 @@ void updateMenu(TellBook* t)
 
 
 
-	cout << "\n\n";
+	cout << "\n\n\n\n";
 
-	system("pause");
+	
 }
 
 
@@ -247,13 +247,13 @@ void mainMenu()
 		case '5':
 		{
 			t->Display(display);
-			system("pause");
+			
 			break;
 		}
 		case '6':
 		{
 			t->Print();
-			system("pause");
+			
 			break;
 		}
 		case '0':
@@ -265,6 +265,7 @@ void mainMenu()
 
 		}
 		}
+		system("pause");
 	}
 
 }
