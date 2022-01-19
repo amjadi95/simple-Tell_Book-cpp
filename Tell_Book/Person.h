@@ -8,6 +8,8 @@ public:
 	string firstName;
 	string lastName;
 	string phoneNumber;
+	char gender;
+	char group;
 	Person();
-	Person(string,string,string);
+	Person(string,string,string,bool);
 };

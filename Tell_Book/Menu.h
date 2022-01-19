@@ -4,34 +4,46 @@
 using namespace std;
 
 
-void display(Person* p[])
+void display(List<Person>* list)
 {
+	system("cls");
 	cout << "\n\n\n";
-
-	for (int i = 0; i < 3; i++)
+	cout << "  group" << "\t" <<
+		"gender" << "\t" <<
+		"name" << "\t\t" <<
+		"famili" << "\t\t" <<
+		"mobile" << "\n\n";
+	for (int i = 0; i < list->Count(); i++)
 	{
-		if (p[i] != NULL)
-		{
-			cout << p[i]->firstName << "\t" << p[i]->lastName << "\t" << p[i]->phoneNumber << "\n\n";
-		}
-
+		Person* p = list->getItem(i);
+		cout << i + 1 << "_" <<
+			p->group << "\t" <<
+			p->gender << "\t" <<
+			p->firstName << "\t\t" <<
+			p->lastName << "\t\t" <<
+			p->phoneNumber << "\n\n";
 	}
-	
 }
 void insertMenu(TellBook* t)
 {
 	system("cls");
 
-	Person p;
+	string fname, lname, number, gender;
 	cout << "\n ENTER FIRST NAME :";
-	cin >> p.firstName;
+	cin >> fname;
 
 	cout << "\n ENTER LAST NAME :";
-	cin >> p.lastName;
+	cin >> lname;
 
 	cout << "\n ENTER PHONE NUMBER :";
-	cin >> p.phoneNumber;
+	cin >> number;
 
+	cout << "\n ENTER GENDER (female=1 , male=0) :";
+	cin >> gender;
+
+	bool g = gender == "1" ? 1 : 0;
+
+	Person p(fname, lname, number, g);
 	bool b = t->Insert(p);
 
 	if (b)
@@ -42,22 +54,21 @@ void insertMenu(TellBook* t)
 		cout << "\n\n INSERTION FAILED!!!";
 	}
 
-	cout << "\n\n";
-
-	system("pause");
 }
 
 void deleteMenu(TellBook* t)
 {
 	system("cls");
 
-	Person p;
 
+	string lname = "", number = "";
 	cout << "\n ENTER LAST NAME :";
-	cin >> p.lastName;
+	cin >> lname;
 
 	cout << "\n ENTER PHONE NUMBER :";
-	cin >> p.phoneNumber;
+	cin >> number;
+
+	Person p("", lname, number, 1);
 
 	Person* temp = t->Delete(p);
 
@@ -70,22 +81,21 @@ void deleteMenu(TellBook* t)
 		cout << "\n\n DELETION FAILED!  NO RECORD FOUND!!!";
 	}
 
-	cout << "\n\n";
 
-	system("pause");
 }
 
 void searchMenu(TellBook* t)
 {
-	
+
 	while (1)
 	{
 		system("cls");
-		Person p;
+		string fname = "", lname = "";
 		char c;
 		cout << "\n\n 1)BY LAST NAME \n";
 		cout << "\n\n 2)BY FIRST NAME\n";
-		cout << "\n\n 0)BACK TO MAIN MENU \n";
+		cout << "\n\n 0)BACK TO MAIN MENU \n\n";
+		cout << " >";
 		cin >> c;
 
 		switch (c)
@@ -93,26 +103,26 @@ void searchMenu(TellBook* t)
 		case '1':
 		{
 			cout << "\n Enter LAST NAME :";
-			cin >> p.lastName;
+			cin >> fname;
 			break;
 		}
 		case '2':
 		{
 			cout << "\n Enter FIRST NAME :";
-			cin >> p.firstName;
+			cin >> lname;
 			break;
 		}
 		case '0':
 		{
-			return;
+
 		}
 		default:
 		{
-
+			return;
 		}
 		}
-
-		List* l = t->Search(p);
+		Person p(fname, lname, "", 1);
+		List<Person>* l = t->Search(p);
 
 		if (l->Count() != 0)
 		{
@@ -122,31 +132,31 @@ void searchMenu(TellBook* t)
 		else {
 			cout << "\n\n NO RECORD FOUND!!!";
 		}
-		cout << "\n\n";
-
-		system("pause");
 
 	}
-
-
-
-	
 }
 
 void updateMenu(TellBook* t)
 {
 	system("cls");
 
-	Person p;
+	string fname = "", lname = "";
 	cout << "\n\n ENTER FIRST NAME :";
-	cin >> p.firstName;
+	cin >> fname;
 
 	cout << "\n ENTER LAST NAME :";
-	cin >> p.lastName;
+	cin >> lname;
 
+	Person p(fname, lname, "", 1);
 	int i = t->SearchOneByName(p);
+
+
+
 	if (i >= 0)
 	{
+		Person old = *t->getItem(i);
+		cout << "\n\n " << old.firstName << "  " << old.lastName << "  " << old.phoneNumber << " (old record)\n\n";
+
 		cout << "\n ENTER NEW PHONE NUMBER :";
 		string n;
 		cin >> n;
@@ -168,28 +178,27 @@ void updateMenu(TellBook* t)
 	}
 
 
-
-
-	cout << "\n\n";
-
-	system("pause");
 }
 
 
-void mainMenu(TellBook* t)
+void mainMenu()
 {
+	TellBook* t = new TellBook();
+
 	while (1)
 	{
 		char c;
 		system("cls");
+		cout << " >check my Github\n    <https://github.com/amjadi95/simple-Tell_Book-cpp/tree/master/Tell_Book> \n\n";
 
-		cout << "\n 1)INSERT \n";
-		cout << "\n 2)DELETE \n";
-		cout << "\n 3)UPDATE \n";
-		cout << "\n 4)SEARCH \n";
-		cout << "\n 5)DISPLAY \n";
-		cout << "\n 0)Exit \n";
-
+		cout << "\n  1)INSERT \n";
+		cout << "\n  2)DELETE \n";
+		cout << "\n  3)UPDATE \n";
+		cout << "\n  4)SEARCH \n";
+		cout << "\n  5)DISPLAY \n";
+		cout << "\n  6)PRINT TO FILE \n";
+		cout << "\n  0)Exit \n\n";
+		cout << "\n  >";
 		cin >> c;
 
 		switch (c)
@@ -217,7 +226,13 @@ void mainMenu(TellBook* t)
 		case '5':
 		{
 			t->Display(display);
-			system("pause");
+
+			break;
+		}
+		case '6':
+		{
+			t->Print();
+
 			break;
 		}
 		case '0':
@@ -229,6 +244,13 @@ void mainMenu(TellBook* t)
 
 		}
 		}
+
+
+
+		cout << "\n\n\n\n";
+
+
+		system("pause");
 	}
 
 }

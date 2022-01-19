@@ -27,6 +27,9 @@
     <ClCompile Include="TellBook.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="File.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Person.h">
@@ -39,6 +42,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="File.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

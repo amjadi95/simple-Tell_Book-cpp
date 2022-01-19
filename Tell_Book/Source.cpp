@@ -6,8 +6,7 @@ using namespace std;
 
 void main()
 {
-	TellBook * t = new TellBook();
-	mainMenu(t);
+	mainMenu();
 	
 
 	system("pause");
