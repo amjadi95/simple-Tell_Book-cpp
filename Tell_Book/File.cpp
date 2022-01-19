@@ -26,7 +26,7 @@ bool Tell_Book_File::fileWrite(List list)
 				fout << p->group << "\t" <<
 					p->gender << "\t" <<
 					p->firstName << "\t" <<
-					p->lastName << " \t" <<
+					p->lastName << "\t" <<
 					p->phoneNumber << "\n";
 			}
 			else {
@@ -57,7 +57,6 @@ List Tell_Book_File::fileRead()
 		{
 			string fname = "", lname = "", number = "",gender = "",group ="";
 			getline(fin, line );
-			string s;
 			int  i = 0;
 			while (i < line.size())
 			{
