@@ -15,11 +15,18 @@ Person::Person(string fname, string lname, string number,bool g)
 	lastName = lname;
 	phoneNumber = number;
 	gender = g ? 'F' : 'M';
-	char c = lname.at(0);
-	if (c >= 92 && c <= 122)
+	if (lname == "")
 	{
-		c = c - 32;
+		group = ' ';
 	}
-	group = c;
+	else {
+		char c = lname.at(0);
+		if (c >= 92 && c <= 122)
+		{
+			c = c - 32;
+		}
+		group = c;
+	}
+	
 
 }
