@@ -22,23 +22,22 @@ void insertMenu(TellBook* t)
 {
 	system("cls");
 
-	Person p;
+	string fname, lname, number, gender;
 	cout << "\n ENTER FIRST NAME :";
-	cin >> p.firstName;
+	cin >> fname;
 
 	cout << "\n ENTER LAST NAME :";
-	cin >> p.lastName;
+	cin >> lname;
 
 	cout << "\n ENTER PHONE NUMBER :";
-	cin >> p.phoneNumber;
+	cin >> number;
 
 	cout << "\n ENTER GENDER (female=1 , male=0) :";
-	string s;
-	cin >> s;
+	cin >> gender;
 
-	bool g = s == "1" ? 1 : 0;
-	p.gender = g ? 'F':'M';
+	bool g = gender == "1" ? 1 : 0;
 
+	Person p(fname, lname, number, g);
 	bool b = t->Insert(p);
 
 	if (b)
