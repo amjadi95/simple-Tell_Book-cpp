@@ -1,10 +1,11 @@
 #pragma once
-#include "TellBook.h"
+#include "List.h"
 #include <fstream>
 
 using namespace std;
 class Tell_Book_File
 {
+private:
 	string fileName;
 	
 public:
