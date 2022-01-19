@@ -13,5 +13,5 @@ public:
 	int SearchOneByName(Person);
 	Person* Update(Person, string);
 	TellBook();
-	void Print();
+	bool Print();
 };

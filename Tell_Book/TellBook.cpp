@@ -31,7 +31,7 @@ void TellBook::loadFileData()
 		cout << "\n  ** NO DATA FOUND \n\n";
 	}
 }
-void TellBook::Print() {
+bool TellBook::Print() {
 	List l;
 	for (int i = 0; i < size;i++)
 	{
@@ -42,7 +42,10 @@ void TellBook::Print() {
 		}
 
 	}
-	file->fileWrite(l);
+	bool success = file->fileWrite(l);
+
+	return success;
+
 };
 
 Person* TellBook::Delete(Person p)
