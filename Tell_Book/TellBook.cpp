@@ -1,8 +1,49 @@
 #include "TellBook.h"
+#include <iostream>
 
 TellBook::TellBook() {
-
+	file = new Tell_Book_File("example");
+	loadFileData();
 }
+
+void TellBook::loadFileData()
+{
+	List _list = file->fileRead();
+
+	if (_list.Count() > 0)
+	{
+		try {
+			for (int i = 0; i < _list.Count(); i++)
+			{
+				Person* p = _list.getItem(i);
+				if (p != NULL)
+				{
+					Insert(*p);
+				}
+			}
+		}
+		catch (const exception& e) {
+			cout << "\n  ** LOADING DATA FROM FILE FAILED \n\n";
+		}
+		
+	}
+	else {
+		cout << "\n  ** NO DATA FOUND \n\n";
+	}
+}
+void TellBook::Print() {
+	List l;
+	for (int i = 0; i < size;i++)
+	{
+		if (list[i] != NULL)
+		{
+			Person p = *list[i];
+			l.Insert(p);
+		}
+
+	}
+	file->fileWrite(l);
+};
 
 Person* TellBook::Delete(Person p)
 {
