@@ -11,8 +11,8 @@ private:
 public:
 	Tell_Book_File(string);
 
-	void fileWrite(List);
+	bool fileWrite(List);
 	List fileRead();
-	void fileAppend(Person);
+	bool fileAppend(Person);
 
 };

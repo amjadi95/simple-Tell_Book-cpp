@@ -7,13 +7,14 @@ Tell_Book_File::Tell_Book_File(string name)
 	fileName = name + ".txt";
 }
 
-void Tell_Book_File::fileWrite(List list)
+bool Tell_Book_File::fileWrite(List list)
 {
 	ofstream fout;
 	fout.open(fileName);
 	if (!fout.is_open())
 	{
 		cout << "\n\n ** file can't be open \n\n";
+		return false;
 	}
 	else {
 		fout << "group\tsex\tname\tfamili\tmobile\n";
@@ -35,6 +36,7 @@ void Tell_Book_File::fileWrite(List list)
 		}
 	}
 	fout.close();
+	return true;
 }
 List Tell_Book_File::fileRead()
 {
@@ -131,13 +133,14 @@ List Tell_Book_File::fileRead()
 	fin.close();
 	return _list;
 }
-void Tell_Book_File::fileAppend(Person p)
+bool Tell_Book_File::fileAppend(Person p)
 {
 	ofstream fout;
 	fout.open(fileName, ios::app);
 	if (!fout)
 	{
 		cout << "\n\n ** file can't be open \n\n";
+		return false;
 	}
 	else {
 		fout << p.firstName << "\t" <<
@@ -147,4 +150,6 @@ void Tell_Book_File::fileAppend(Person p)
 			p.firstName << "\n";
 
 	}
+	fout.close();
+	return true;
 }
