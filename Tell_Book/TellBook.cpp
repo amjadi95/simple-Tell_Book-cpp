@@ -1,5 +1,40 @@
 #include "TellBook.h"
 #include <iostream>
+#include <Windows.h>
+
+using namespace std;
+
+
+void set_cursor(int x = 0, int y = 0)
+{
+	HANDLE handle;
+	COORD coordinates;
+	handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	coordinates.X = x;
+	coordinates.Y = y;
+	SetConsoleCursorPosition(handle, coordinates);
+}
+
+void loading() {
+	system("cls");
+	set_cursor(5, 5);
+	float progress = 0.0;
+	while (progress <= 1.1) {
+		int barWidth = 70;
+		Sleep(300);
+		cout << "[";
+		int pos = barWidth * progress;
+		for (int i = 0; i < barWidth; i++) {
+			if (i < pos)  cout << "=";
+			else if (i == pos) cout << ">";
+			else cout << " ";
+		}
+		cout << "] " << int(progress * 100.0) << " %\r";
+		cout.flush();
+
+		progress += 0.10; // for demonstration only
+	}
+}
 
 TellBook::TellBook() {
 	file = new Tell_Book_File("example");
@@ -9,6 +44,8 @@ TellBook::TellBook() {
 void TellBook::loadFileData()
 {
 	List _list = file->fileRead();
+
+	loading();
 
 	if (_list.Count() > 0)
 	{
@@ -21,6 +58,7 @@ void TellBook::loadFileData()
 					Insert(*p);
 				}
 			}
+			cout << "\n  ** DATA LOADED SUCCESSFULLY ** \n\n";
 		}
 		catch (const exception& e) {
 			cout << "\n  ** LOADING DATA FROM FILE FAILED \n\n";
@@ -30,6 +68,8 @@ void TellBook::loadFileData()
 	else {
 		cout << "\n  ** NO DATA FOUND \n\n";
 	}
+	set_cursor(0, 12);
+	system("pause");
 }
 bool TellBook::Print() {
 	List l;
