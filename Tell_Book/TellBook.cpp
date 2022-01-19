@@ -98,7 +98,7 @@ void TellBook::loadFileData()
 		catch (const exception& e) {
 			cout << "\n  ** LOADING DATA FROM FILE FAILED \n\n";
 		}
-		
+
 	}
 	else {
 		cout << "\n  ** NO DATA FOUND \n\n";
@@ -108,13 +108,10 @@ void TellBook::loadFileData()
 }
 bool TellBook::Print() {
 	List<Person> l;
-	for (int i = 0; i < size;i++)
+	for (int i = 0; i < Count();i++)
 	{
-		if (list[i] != NULL)
-		{
-			Person p = *list[i];
-			l.Insert(p);
-		}
+		Person p = *list[i];
+		l.Insert(p);
 
 	}
 	bool success = file->fileWrite(l);
@@ -127,28 +124,26 @@ Person* TellBook::Delete(Person p)
 {
 
 	int index = -1;
-	Person * deleted = NULL;
+	Person* deleted = NULL;
 
-	for (int i = 0; i < 50;i++)
+	for (int i = 0; i < Count();i++)
 	{
-		if (list[i] != NULL)
+		if (list[i]->lastName == p.lastName && list[i]->phoneNumber == p.phoneNumber)
 		{
-			if (list[i]->lastName == p.lastName && list[i]->phoneNumber == p.phoneNumber)
-			{
 
-				index = i;
-				deleted = list[i];
-				break;
-			}
+			index = i;
+			deleted = list[i];
+			break;
 		}
+
 	}
 
 	if (index >= 0)
 	{
 		list[index] = NULL;
-		for (int i = index;i < 50;i++)
+		for (int i = index;i < size;i++)
 		{
-			if (list[i + 1] != NULL && i+1 < 50)
+			if (list[i + 1] != NULL && i + 1 < 50)
 			{
 				Person* x = list[i + 1];
 				list[i] = x;
@@ -158,7 +153,7 @@ Person* TellBook::Delete(Person p)
 				current--;
 				break;
 			}
-			
+
 		}
 	}
 	return deleted;
@@ -166,24 +161,23 @@ Person* TellBook::Delete(Person p)
 List<Person>* TellBook::Search(Person p)
 {
 	List<Person>* l = new List<Person>();
-	if ( p.lastName != "")
+	if (p.lastName != "")
 	{
-		
 
-		for (int i = 0;i < 50;i++)
+
+		for (int i = 0;i < Count();i++)
 		{
-			if (list[i] != NULL)
+
+			if (stringContains(list[i]->lastName, p.lastName))
 			{
-				if (stringContains(list[i]->lastName, p.lastName))
-				{
-					l->Insert(*list[i]);
-				}
+				l->Insert(*list[i]);
 			}
+
 		}
 	}
-	else if ( p.firstName != "")
+	else if (p.firstName != "")
 	{
-		for (int i = 0;i < 50;i++)
+		for (int i = 0;i < Count();i++)
 		{
 			if (list[i] != NULL)
 			{
@@ -199,21 +193,19 @@ List<Person>* TellBook::Search(Person p)
 
 int TellBook::SearchOneByName(Person p)
 {
-	for (int i = 0;i < 50;i++)
+	for (int i = 0;i < Count();i++)
 	{
-		if (list[i] != NULL)
+		if (p.lastName == list[i]->lastName && p.firstName == list[i]->firstName)
 		{
-			if (p.lastName == list[i]->lastName && p.firstName == list[i]->firstName)
-			{
-				return i;
-			}
+			return i;
 		}
+
 	}
 	return -1;
 }
 
 
-Person* TellBook::Update(Person p,string number)
+Person* TellBook::Update(Person p, string number)
 {
 	int index = SearchOneByName(p);
 
@@ -229,6 +221,6 @@ Person* TellBook::Update(Person p,string number)
 		}
 	}
 	return NULL;
-	
+
 
 }
