@@ -182,21 +182,23 @@ void updateMenu(TellBook* t)
 }
 
 
-void mainMenu(TellBook* t)
+void mainMenu()
 {
+	TellBook* t = new TellBook();
+
 	while (1)
 	{
 		char c;
 		system("cls");
 
-		cout << "\n 1)INSERT \n";
-		cout << "\n 2)DELETE \n";
-		cout << "\n 3)UPDATE \n";
-		cout << "\n 4)SEARCH \n";
-		cout << "\n 5)DISPLAY \n";
-		cout << "\n 6)PRINT \n";
-		cout << "\n 0)Exit \n";
-
+		cout << "\n  1)INSERT \n";
+		cout << "\n  2)DELETE \n";
+		cout << "\n  3)UPDATE \n";
+		cout << "\n  4)SEARCH \n";
+		cout << "\n  5)DISPLAY \n";
+		cout << "\n  6)PRINT TO FILE \n";
+		cout << "\n  0)Exit \n";
+		cout << "\n  >";
 		cin >> c;
 
 		switch (c)
@@ -229,7 +231,7 @@ void mainMenu(TellBook* t)
 		}
 		case '6':
 		{
-			t->saveAllToFile();
+			t->Print();
 			system("pause");
 			break;
 		}

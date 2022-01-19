@@ -36,6 +36,7 @@ bool Tell_Book_File::fileWrite(List list)
 		}
 	}
 	fout.close();
+	cout << "\n\n DATA SAVED SUCCESSFULLY  ( EXAMPLE.TXT ) \n\n\n";
 	return true;
 }
 List Tell_Book_File::fileRead()
@@ -151,5 +152,7 @@ bool Tell_Book_File::fileAppend(Person p)
 
 	}
 	fout.close();
+
+	cout << "\n\n\n RECORD ADDED TO FILE SUCCESSFULLY ( EXAMPLE.TXT ) \n\n\n";
 	return true;
 }

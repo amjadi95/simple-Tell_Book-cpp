@@ -17,7 +17,7 @@ void set_cursor(int x = 0, int y = 0)
 
 void loading() {
 	system("cls");
-	set_cursor(5, 5);
+	set_cursor(0, 5);
 	float progress = 0.0;
 	while (progress <= 1.1) {
 		int barWidth = 70;
