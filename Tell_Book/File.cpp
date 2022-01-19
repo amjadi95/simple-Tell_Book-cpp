@@ -143,11 +143,11 @@ bool Tell_Book_File::fileAppend(Person p)
 		return false;
 	}
 	else {
-		fout << p.firstName << "\t" <<
-			p.lastName << "\t" <<
-			p.phoneNumber << "\t\t" <<
-			p.phoneNumber << " \t\t" <<
-			p.firstName << "\n";
+		fout << p.group << "\t" <<
+			p.gender << "\t" <<
+			p.firstName << "\t\t" <<
+			p.lastName << " \t\t" <<
+			p.phoneNumber << "\n";
 
 	}
 	fout.close();
