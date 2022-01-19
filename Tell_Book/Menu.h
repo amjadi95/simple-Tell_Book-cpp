@@ -13,16 +13,21 @@ void display(List<Person>* list)
 		"name" << "\t\t" <<
 		"famili" << "\t\t" <<
 		"mobile" << "\n\n";
-	for (int i = 0; i < list->Count(); i++)
+	if (list != NULL)
 	{
-		Person* p = list->getItem(i);
-		cout << i + 1 << "_" <<
-			p->group << "\t" <<
-			p->gender << "\t" <<
-			p->firstName << "\t\t" <<
-			p->lastName << "\t\t" <<
-			p->phoneNumber << "\n\n";
+		for (int i = 0; i < list->Count(); i++)
+		{
+			Person* p = list->getItem(i);
+			cout << i + 1 << "_" <<
+				p->group << "\t" <<
+				p->gender << "\t" <<
+				p->firstName << "\t\t" <<
+				p->lastName << "\t\t" <<
+				p->phoneNumber << "\n\n";
+		}
+
 	}
+	
 }
 void insertMenu(TellBook* t)
 {
@@ -132,6 +137,10 @@ void searchMenu(TellBook* t)
 		else {
 			cout << "\n\n NO RECORD FOUND!!!";
 		}
+		cout << "\n\n\n\n";
+
+
+		system("pause");
 
 	}
 }

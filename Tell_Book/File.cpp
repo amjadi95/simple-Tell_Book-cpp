@@ -18,7 +18,7 @@ bool Tell_Book_File::fileWrite(List<Person> list)
 	}
 	else {
 		fout << "group\tsex\tname\tfamili\tmobile\n";
-		for (int i = 0; i < list.Size();i++)
+		for (int i = 0; i < list.Count();i++)
 		{
 			Person* p = list.getItem(i);
 			if(p != NULL)
