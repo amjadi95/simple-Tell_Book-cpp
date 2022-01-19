@@ -137,6 +137,10 @@ void searchMenu(TellBook* t)
 		else {
 			cout << "\n\n NO RECORD FOUND!!!";
 		}
+		cout << "\n\n\n\n";
+
+
+		system("pause");
 
 	}
 }
