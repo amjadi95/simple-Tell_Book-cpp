@@ -4,7 +4,7 @@
 using namespace std;
 
 
-void display(Person* p[])
+void display(List<Person>* list)
 {
 	system("cls");
 	cout << "\n\n\n";
@@ -13,21 +13,16 @@ void display(Person* p[])
 		"name" << "\t\t" <<
 		"famili" << "\t\t" <<
 		"mobile" << "\n\n";
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < list->Count(); i++)
 	{
-		if (p[i] != NULL)
-		{
-			cout << i+1 << "_" <<
-				p[i]->group << "\t" <<
-				p[i]->gender << "\t" <<
-				p[i]->firstName << "\t\t" <<
-				p[i]->lastName << "\t\t" << 
-				p[i]->phoneNumber << "\n\n";
-		}
-
+		Person* p = list->getItem(i);
+		cout << i + 1 << "_" <<
+			p->group << "\t" <<
+			p->gender << "\t" <<
+			p->firstName << "\t\t" <<
+			p->lastName << "\t\t" <<
+			p->phoneNumber << "\n\n";
 	}
-	cout << "\n\n\n\n";
-	
 }
 void insertMenu(TellBook* t)
 {
@@ -59,17 +54,14 @@ void insertMenu(TellBook* t)
 		cout << "\n\n INSERTION FAILED!!!";
 	}
 
-	cout << "\n\n\n\n";
-
-	
 }
 
 void deleteMenu(TellBook* t)
 {
 	system("cls");
 
-	
-	string lname="", number="";
+
+	string lname = "", number = "";
 	cout << "\n ENTER LAST NAME :";
 	cin >> lname;
 
@@ -89,14 +81,12 @@ void deleteMenu(TellBook* t)
 		cout << "\n\n DELETION FAILED!  NO RECORD FOUND!!!";
 	}
 
-	cout << "\n\n\n\n";
 
-	
 }
 
 void searchMenu(TellBook* t)
 {
-	
+
 	while (1)
 	{
 		system("cls");
@@ -124,15 +114,15 @@ void searchMenu(TellBook* t)
 		}
 		case '0':
 		{
-			
+
 		}
 		default:
 		{
 			return;
 		}
 		}
-		Person p(fname, lname, "",1);
-		List* l = t->Search(p);
+		Person p(fname, lname, "", 1);
+		List<Person>* l = t->Search(p);
 
 		if (l->Count() != 0)
 		{
@@ -142,15 +132,8 @@ void searchMenu(TellBook* t)
 		else {
 			cout << "\n\n NO RECORD FOUND!!!";
 		}
-		cout << "\n\n\n\n";
-
-		
 
 	}
-
-
-
-	
 }
 
 void updateMenu(TellBook* t)
@@ -167,7 +150,7 @@ void updateMenu(TellBook* t)
 	Person p(fname, lname, "", 1);
 	int i = t->SearchOneByName(p);
 
-	
+
 
 	if (i >= 0)
 	{
@@ -195,11 +178,6 @@ void updateMenu(TellBook* t)
 	}
 
 
-
-
-	cout << "\n\n\n\n";
-
-	
 }
 
 
@@ -211,6 +189,7 @@ void mainMenu()
 	{
 		char c;
 		system("cls");
+		cout << " >check my Github\n    <https://github.com/amjadi95/simple-Tell_Book-cpp/tree/master/Tell_Book> \n\n";
 
 		cout << "\n  1)INSERT \n";
 		cout << "\n  2)DELETE \n";
@@ -247,13 +226,13 @@ void mainMenu()
 		case '5':
 		{
 			t->Display(display);
-			
+
 			break;
 		}
 		case '6':
 		{
 			t->Print();
-			
+
 			break;
 		}
 		case '0':
@@ -265,6 +244,12 @@ void mainMenu()
 
 		}
 		}
+
+
+
+		cout << "\n\n\n\n";
+
+
 		system("pause");
 	}
 
