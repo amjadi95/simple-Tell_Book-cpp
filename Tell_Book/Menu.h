@@ -6,16 +6,27 @@ using namespace std;
 
 void display(Person* p[])
 {
+	system("cls");
 	cout << "\n\n\n";
-
+	cout << "  group" << "\t" <<
+		"gender" << "\t" <<
+		"name" << "\t\t" <<
+		"famili" << "\t\t" <<
+		"mobile" << "\n\n";
 	for (int i = 0; i < 3; i++)
 	{
 		if (p[i] != NULL)
 		{
-			cout << p[i]->firstName << "\t" << p[i]->lastName << "\t" << p[i]->phoneNumber << "\n\n";
+			cout << i+1 << "_" <<
+				p[i]->group << "\t" <<
+				p[i]->gender << "\t" <<
+				p[i]->firstName << "\t\t" <<
+				p[i]->lastName << "\t\t" << 
+				p[i]->phoneNumber << "\n\n";
 		}
 
 	}
+	cout << "\n\n\n\n";
 	
 }
 void insertMenu(TellBook* t)
@@ -57,13 +68,15 @@ void deleteMenu(TellBook* t)
 {
 	system("cls");
 
-	Person p;
-
+	
+	string fname="", number="";
 	cout << "\n ENTER LAST NAME :";
-	cin >> p.lastName;
+	cin >> fname;
 
 	cout << "\n ENTER PHONE NUMBER :";
-	cin >> p.phoneNumber;
+	cin >> number;
+
+	Person p(fname,"",number,1);
 
 	Person* temp = t->Delete(p);
 
@@ -87,11 +100,12 @@ void searchMenu(TellBook* t)
 	while (1)
 	{
 		system("cls");
-		Person p;
+		string fname = "", lname = "";
 		char c;
 		cout << "\n\n 1)BY LAST NAME \n";
 		cout << "\n\n 2)BY FIRST NAME\n";
-		cout << "\n\n 0)BACK TO MAIN MENU \n";
+		cout << "\n\n 0)BACK TO MAIN MENU \n\n";
+		cout << " >";
 		cin >> c;
 
 		switch (c)
@@ -99,25 +113,25 @@ void searchMenu(TellBook* t)
 		case '1':
 		{
 			cout << "\n Enter LAST NAME :";
-			cin >> p.lastName;
+			cin >> fname;
 			break;
 		}
 		case '2':
 		{
 			cout << "\n Enter FIRST NAME :";
-			cin >> p.firstName;
+			cin >> lname;
 			break;
 		}
 		case '0':
 		{
-			return;
+			
 		}
 		default:
 		{
-
+			return;
 		}
 		}
-
+		Person p(fname, lname, "",1);
 		List* l = t->Search(p);
 
 		if (l->Count() != 0)
@@ -143,16 +157,23 @@ void updateMenu(TellBook* t)
 {
 	system("cls");
 
-	Person p;
+	string fname = "", lname = "";
 	cout << "\n\n ENTER FIRST NAME :";
-	cin >> p.firstName;
+	cin >> fname;
 
 	cout << "\n ENTER LAST NAME :";
-	cin >> p.lastName;
+	cin >> lname;
 
+	Person p(fname, lname, "", 1);
 	int i = t->SearchOneByName(p);
+
+	
+
 	if (i >= 0)
 	{
+		Person old = *t->getItem(i);
+		cout << "\n\n " << old.firstName << "  " << old.lastName << "  " << old.phoneNumber << " (old record)\n\n";
+
 		cout << "\n ENTER NEW PHONE NUMBER :";
 		string n;
 		cin >> n;
@@ -197,7 +218,7 @@ void mainMenu()
 		cout << "\n  4)SEARCH \n";
 		cout << "\n  5)DISPLAY \n";
 		cout << "\n  6)PRINT TO FILE \n";
-		cout << "\n  0)Exit \n";
+		cout << "\n  0)Exit \n\n";
 		cout << "\n  >";
 		cin >> c;
 
