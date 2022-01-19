@@ -12,10 +12,10 @@ public:
 	List();
 
 	bool Insert(T);
-	virtual T* Delete(T) ;
-	virtual List<T>* Search(T) ;
-	virtual T* Update(T,string);
-	void Display(void (* )(List<T> *));
+	virtual T* Delete(T);
+	virtual List<T>* Search(T);
+	virtual T* Update(T, string);
+	void Display(void (*)(List<T>*));
 	int Count();
 	List<T>* getList();
 	int Size();
@@ -25,7 +25,7 @@ public:
 
 template <typename T> List<T>::List<T>()
 {
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < size; i++)
 	{
 		list[i] = NULL;
 	}
@@ -37,7 +37,7 @@ template <typename T> bool   List<T>::Insert(T p)
 {
 	try
 	{
-		if (current < 50)
+		if (current < size)
 		{
 			list[current++] = new T(p);
 		}
@@ -77,26 +77,31 @@ template <typename T>int List<T>::Count()
 	if (current == 0)
 		return 0;
 	else
-		return current ;
+		return current;
 
 }
 
 template <typename T>List<T>* List<T>::getList()
 {
-	List<T>* l = new List<T>();
-	for (int i = 0; i < 50;i++)
+	if (Count() > 0)
 	{
-		if (list[i] != NULL)
+		List<T>* l = new List<T>();
+		for (int i = 0; i < Count();i++)
 		{
+
 			l->Insert(*list[i]);
+
 		}
+		return l;
 	}
-	return l;
+	else
+		return NULL;
+
 }
 
 template <typename T>T* List<T>::getItem(int index)
 {
-	if (index < 50)
+	if (index < size)
 	{
 		if (list[index] != NULL)
 		{
