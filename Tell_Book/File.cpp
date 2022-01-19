@@ -7,7 +7,7 @@ Tell_Book_File::Tell_Book_File(string name)
 	fileName = name + ".txt";
 }
 
-bool Tell_Book_File::fileWrite(List list)
+bool Tell_Book_File::fileWrite(List<Person> list)
 {
 	ofstream fout;
 	fout.open(fileName);
@@ -39,9 +39,9 @@ bool Tell_Book_File::fileWrite(List list)
 	cout << "\n\n DATA SAVED SUCCESSFULLY  ( EXAMPLE.TXT ) \n\n\n";
 	return true;
 }
-List Tell_Book_File::fileRead()
+List<Person> Tell_Book_File::fileRead()
 {
-	List _list;
+	List<Person> _list;
 
 	ifstream fin;
 	fin.open(fileName, ios::in);

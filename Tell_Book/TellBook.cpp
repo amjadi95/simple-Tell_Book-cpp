@@ -78,7 +78,7 @@ TellBook::TellBook() {
 
 void TellBook::loadFileData()
 {
-	List _list = file->fileRead();
+	List<Person> _list = file->fileRead();
 
 	loading();
 
@@ -107,7 +107,7 @@ void TellBook::loadFileData()
 	system("pause");
 }
 bool TellBook::Print() {
-	List l;
+	List<Person> l;
 	for (int i = 0; i < size;i++)
 	{
 		if (list[i] != NULL)
@@ -163,9 +163,9 @@ Person* TellBook::Delete(Person p)
 	}
 	return deleted;
 }
-List* TellBook::Search(Person p)
+List<Person>* TellBook::Search(Person p)
 {
-	List* l = new List();
+	List<Person>* l = new List<Person>();
 	if ( p.lastName != "")
 	{
 		
