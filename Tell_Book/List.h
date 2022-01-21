@@ -12,7 +12,7 @@ public:
 	List();
 
 	bool Insert(T);
-	virtual T* Delete(T);
+	virtual T* Delete(int);
 	virtual List<T>* Search(T);
 	virtual T* Update(T, string);
 	virtual void Display(void (*)(List<T>*));
@@ -63,9 +63,35 @@ template <typename T> T* List<T>::Update(T p, string number)
 
 }
 
-template <typename T>T* List<T>::Delete(T p) {
+template <typename T>T* List<T>::Delete(int index) {
 
-	return NULL;
+	T* deleted = NULL;
+	if (index >= 0 && index < Count())
+	{
+		try {
+			deleted = list[index];
+			list[index] = NULL;
+			for (int i = index;i < Count();i++)
+			{
+				if (list[i + 1] != NULL && i + 1 < Count())
+				{
+					T* x = list[i + 1];
+					list[i] = x;
+				}
+				else {
+					list[i] = NULL;
+					current--;
+					break;
+				}
+			}
+		}
+		catch (const exception& e)
+		{
+			return NULL;
+		}
+		
+	}
+	return deleted;
 }
 template <typename T>List<T>* List<T>::Search(T p)
 {
