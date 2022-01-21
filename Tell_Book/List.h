@@ -15,7 +15,7 @@ public:
 	virtual T* Delete(T);
 	virtual List<T>* Search(T);
 	virtual T* Update(T, string);
-	void Display(void (*)(List<T>*));
+	virtual void Display(void (*)(List<T>*));
 	int Count();
 	List<T>* getList();
 	int Size();
