@@ -122,41 +122,22 @@ bool TellBook::Print() {
 
 Person* TellBook::Delete(Person p)
 {
-
 	int index = -1;
-	Person* deleted = NULL;
-
 	for (int i = 0; i < Count();i++)
 	{
 		if (list[i]->lastName == p.lastName && list[i]->phoneNumber == p.phoneNumber)
 		{
-
 			index = i;
-			deleted = list[i];
 			break;
 		}
-
 	}
-
+	
+	Person* temp = NULL;
 	if (index >= 0)
 	{
-		list[index] = NULL;
-		for (int i = index;i < size;i++)
-		{
-			if (list[i + 1] != NULL && i + 1 < 50)
-			{
-				Person* x = list[i + 1];
-				list[i] = x;
-			}
-			else {
-				list[i] = NULL;
-				current--;
-				break;
-			}
-
-		}
+		temp = List<Person>::Delete(index);
 	}
-	return deleted;
+	return temp;
 }
 List<Person>* TellBook::Search(Person p)
 {
