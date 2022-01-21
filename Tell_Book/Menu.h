@@ -83,7 +83,7 @@ void deleteMenu(TellBook* t)
 		cout << "\n RECORD HAS BEEN DELETED!";
 	}
 	else {
-		cout << "\n\n DELETION FAILED!  NO RECORD FOUND!!!";
+		cout << "\n\n  NO RECORD FOUND!!!";
 	}
 
 
@@ -205,7 +205,7 @@ void mainMenu()
 		cout << "\n  3)UPDATE \n";
 		cout << "\n  4)SEARCH \n";
 		cout << "\n  5)DISPLAY \n";
-		cout << "\n  6)PRINT TO FILE \n";
+		cout << "\n  6)SAVE CHANGES ( to file ) \n";
 		cout << "\n  0)Exit \n\n";
 		cout << "\n  >";
 		cin >> c;
